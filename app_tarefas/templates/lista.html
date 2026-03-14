@@ -1,0 +1,14 @@
+<h1 style="color:blue;">Aplicativo de Tarefas</h1>
+<hr>
+
+<ul>
+   {% for item in tarefas %}
+        <li><strong>{{item.titulo}}</strong>
+        {% if item.conluida %}
+            <span style="color: green;">(Concluida)</span>
+        { %else %}
+            <span style="color: red">(Pendente)</span>
+        {% endif %}
+    </li>
+        {% endfor %}
+</ul>
