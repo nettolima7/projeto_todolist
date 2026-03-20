@@ -10,3 +10,6 @@ def listar_tarefas(request):
     }
 
     return render(request, 'lista.html', contexto)
+
+def criar_tarefa(request):
+    return render(request, 'nova.html')
