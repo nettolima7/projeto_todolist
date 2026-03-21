@@ -2,13 +2,26 @@
 <hr>
 
 <ul>
-   {% for item in tarefas %}
-        <li><strong>{{item.titulo}}</strong>
-        {% if item.conluida %}
+    {% for item in tarefas %}
+    <li>
+        <strong>{{ item.titulo }}</strong>
+        
+        {% if item.concluida %}
             <span style="color: green;">(Concluida)</span>
-        { %else %}
+        {% else %}
             <span style="color: red">(Pendente)</span>
+            <a href="/concluir/{{ item.id }}/">[Marcar como Feita]</a>
+            <a href="/deletar/{{ item.id }}/" style="color:red;">[X Apagar]</a>
+        
         {% endif %}
     </li>
-        {% endfor %}
+    {% endfor %}
 </ul>
+    <br>
+    <h3>Adicionar Nova Tarefa: </h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="novo_titulo" required>
+        <button type="submit">Salvar</button>
+    </form>
